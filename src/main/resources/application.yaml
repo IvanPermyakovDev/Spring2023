@@ -1,0 +1,23 @@
+server:
+  port:
+    9090
+
+spring:
+  profiles:
+    active:
+      dev
+
+  dev-profile:
+    server:
+      port:
+        8080
+
+  test-profile:
+    server:
+      port:
+        7070
+
+  prod-profile:
+    server:
+      port:
+        8447
