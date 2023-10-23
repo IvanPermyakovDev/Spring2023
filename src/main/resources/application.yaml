@@ -21,3 +21,12 @@ spring:
     server:
       port:
         8447
+
+  datasource:
+    url: jdbc:h2:mem:defaultdb
+    driverClassname: org.h2.Driver
+    username: default
+    password: 1234
+  h2:
+    console:
+      enabled: true
