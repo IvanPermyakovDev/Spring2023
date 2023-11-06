@@ -1,37 +1,24 @@
-package application.entities;
+package infrastructure.entities;
 
 import domain.helpers.TaskComplexity;
 import domain.helpers.TaskState;
 import domain.model.Comment;
 import domain.model.User;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Task implements domain.model.Task {
-    public Task(String description,
-                ArrayList<String> subtasks,
-                LocalDateTime deadline,
-                User creator,
-                ArrayList<Long> performers,
-                TaskComplexity complexity,
-                String category,
-                long id){
-        this.description = description;
-        this.subtasks = subtasks;
-        this.deadline = deadline;
-        this.performers = performers;
-        this.complexity = complexity;
-        this.category = category;
-        this.id = id;
-    }
-
-    public Task(){}
-
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "tasks")
+public class TaskImpl implements domain.model.Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

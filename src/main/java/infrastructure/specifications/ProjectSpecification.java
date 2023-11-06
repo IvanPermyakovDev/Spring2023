@@ -1,7 +1,7 @@
 package infrastructure.specifications;
 
-import application.entities.Project;
+import infrastructure.entities.ProjectImpl;
 
 public interface ProjectSpecification {
-    boolean fits(Project project);
+    boolean fits(ProjectImpl projectImpl);
 }

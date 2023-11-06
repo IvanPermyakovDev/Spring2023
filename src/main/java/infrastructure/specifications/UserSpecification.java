@@ -1,7 +1,7 @@
 package infrastructure.specifications;
 
-import application.entities.User;
+import infrastructure.entities.UserImpl;
 
 public interface UserSpecification {
-    boolean fits(User user);
+    boolean fits(UserImpl userImpl);
 }

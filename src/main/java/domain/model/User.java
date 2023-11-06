@@ -1,12 +1,47 @@
 package domain.model;
 
+/**
+ * интерфейс сущности пользователя
+ */
 public interface User {
-    long getId(); // идентификатор пользователя
-    String getNickname(); // никнейм пользователя
-    String getFirstName(); // имя пользователя
-    String getLastname(); //фамилия пользователя
-    String getLogin(); // логин пользователя
-    String getPassword(); //пароль пользователя
-    String getMail(); // почта пользователя
+    /**
+     *
+     * @return id пользователя
+     */
+    long getId();
 
+    /**
+     *
+     * @return никнейм пользователя
+     */
+    String getNickname();
+
+    /**
+     *
+     * @return имя пользователя
+     */
+    String getFirstName();
+
+    /**
+     *
+     * @return фамилия пользователя
+     */
+    String getLastname();
+
+    /**
+     *
+     * @return логин пользователя
+     */
+    String getLogin();
+
+    /**
+     *
+     * @return пароль пользователя
+     */
+    String getPassword();
+    /**
+     *
+     * @return почта пользователя
+     */
+    String getMail();
 }

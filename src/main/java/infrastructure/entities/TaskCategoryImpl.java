@@ -1,19 +1,19 @@
-package application.entities;
+package infrastructure.entities;
 
 import domain.model.Task;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
-public class TaskCategory implements domain.model.TaskCategory {
-    public TaskCategory(long projectId, String name){
-        this.projectId = projectId;
-        this.name = name;
-    }
-    public TaskCategory(){}
-
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "task_categories")
+public class TaskCategoryImpl implements domain.model.TaskCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long projectId;

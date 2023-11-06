@@ -1,26 +1,19 @@
-package application.entities;
+package infrastructure.entities;
 
 import domain.model.User;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
-public class Project implements domain.model.Project {
 
-    public Project(String name,
-                   User teamLead,
-                   ArrayList<User>  teamMembers,
-                   long id) {
-        this.name = name;
-        this.teamLead = teamLead;
-        this.teamMembers = teamMembers;
-        teamMembers.add(teamLead);
-        this.id = id;
-    }
-
-    public Project(){}
-
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "projects")
+public class ProjectImpl implements domain.model.Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
