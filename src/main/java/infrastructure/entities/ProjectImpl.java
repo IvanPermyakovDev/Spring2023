@@ -1,28 +1,27 @@
-package application.entityClasses;
+package infrastructure.entities;
 
-import domain.model.IProject;
+import domain.model.User;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class Project implements IProject {
-
-    public Project(String name,
-                   long teamLead,
-                   List<Long>  teamMembers,
-                   long id){
-        this.name = name;
-        this.teamLead = teamLead;
-        this.teamMembers = teamMembers;
-        teamMembers.add(teamLead);
-        this.id = id;
-    }
-
-    private final long id;
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "projects")
+public class ProjectImpl implements domain.model.Project {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String name;
     private String description = "";
-    private long teamLead;
-    private List<Long> teamMembers;
-    private List<String> taskCategories;
+    private User teamLead;
+    private ArrayList<User> teamMembers;
+    private ArrayList<String> taskCategories;
 
     @Override
     public long getId() {
@@ -40,19 +39,19 @@ public class Project implements IProject {
     }
 
     @Override
-    public long getTeamLead() {
+    public User getTeamLead() {
         return teamLead;
     }
 
     @Override
-    public List<Long> getTeamMembers() { return teamMembers; }
+    public ArrayList<User> getTeamMembers() { return teamMembers; }
 
     @Override
-    public List<String> getTaskCategories() { return taskCategories; }
+    public ArrayList<String> getTaskCategories() { return taskCategories; }
 
     public void changeName(String newName) { name = newName; }
     public void updateDescription(String newDescription) { description = newDescription; }
-    public void addTeamMember(long memberId) { teamMembers.add(memberId); }
+    public void addTeamMember(User member) { teamMembers.add(member); }
     public void deleteTeamMember(long memberId){ teamMembers.remove(teamMembers.indexOf(memberId)); }
     public void addTaskCategory(String category) { taskCategories.add(category); }
     public void deleteTaskCategory(String category) { taskCategories.remove(taskCategories.indexOf(category)); }

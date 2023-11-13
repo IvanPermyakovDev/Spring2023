@@ -1,15 +1,19 @@
-package application.entities;
+package infrastructure.entities;
 
 import domain.helpers.UserRole;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
-public class User implements domain.model.User {
-    public User(){}
-
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "users")
+public class UserImpl implements domain.model.User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -19,8 +23,8 @@ public class User implements domain.model.User {
     private String login;
     private String password;
     private String mail;
-    private ArrayList<Project> ownProjects;
-    private ArrayList<Project> projects;
+    private ArrayList<ProjectImpl> ownProjectImpls;
+    private ArrayList<ProjectImpl> projectImpls;
     private UserRole role;
     @Override
     public long getId() {
@@ -57,12 +61,12 @@ public class User implements domain.model.User {
         return mail;
     }
 
-    public ArrayList<Project> getOwnProjects() {
-        return ownProjects;
+    public ArrayList<ProjectImpl> getOwnProjects() {
+        return ownProjectImpls;
     }
 
-    public ArrayList<Project> getProjects() {
-        return projects;
+    public ArrayList<ProjectImpl> getProjects() {
+        return projectImpls;
     }
 
     public UserRole getRole(){
@@ -89,19 +93,19 @@ public class User implements domain.model.User {
         this.role = role;
     }
 
-    public void addOwnProject(Project project){
-        ownProjects.add(project);
+    public void addOwnProject(ProjectImpl projectImpl){
+        ownProjectImpls.add(projectImpl);
     }
 
-    public void deleteOwnProject(Project project){
-        ownProjects.remove(ownProjects.indexOf(project));
+    public void deleteOwnProject(ProjectImpl projectImpl){
+        ownProjectImpls.remove(ownProjectImpls.indexOf(projectImpl));
     }
 
-    public void addProject(Project project){
-        projects.add(project);
+    public void addProject(ProjectImpl projectImpl){
+        projectImpls.add(projectImpl);
     }
 
-    public void deleteProject(Project project){
-        projects.remove(projects.indexOf(project));
+    public void deleteProject(ProjectImpl projectImpl){
+        projectImpls.remove(projectImpls.indexOf(projectImpl));
     }
 }

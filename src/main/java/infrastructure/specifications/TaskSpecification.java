@@ -1,7 +1,7 @@
 package infrastructure.specifications;
 
-import application.entities.Task;
+import infrastructure.entities.TaskImpl;
 
 public interface TaskSpecification {
-    boolean fits(Task task);
+    boolean fits(TaskImpl taskImpl);
 }

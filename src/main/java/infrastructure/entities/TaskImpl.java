@@ -1,41 +1,35 @@
-package application.entityClasses;
+package infrastructure.entities;
 
-import domain.model.IComment;
-import domain.model.ITask;
 import domain.helpers.TaskComplexity;
 import domain.helpers.TaskState;
+import domain.model.Comment;
+import domain.model.User;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.ArrayList;
 
-
-public class Task implements ITask {
-    public Task(String description,
-                List<String> subtasks,
-                LocalDateTime deadline,
-                long creatorId,
-                List<Long> performers,
-                TaskComplexity complexity,
-                String category,
-                long id){
-        this.description = description;
-        this.subtasks = subtasks;
-        this.deadline = deadline;
-        this.performers = performers;
-        this.complexity = complexity;
-        this.category = category;
-        this.id = id;
-    }
-    private final long id;
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "tasks")
+public class TaskImpl implements domain.model.Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String description;
-    private List<String> subtasks;
-    private List<IComment> comments;
+    private ArrayList<String> subtasks;
+    private ArrayList<Comment> comments;
     @DateTimeFormat
     private LocalDateTime deadline;
     private TaskState state = TaskState.NOTSTARTED;
-    private long creatorId;
-    private List<Long> performers;
+    private User creator;
+    private ArrayList<Long> performers;
     private TaskComplexity complexity;
     private String category;
 
@@ -50,12 +44,12 @@ public class Task implements ITask {
     }
 
     @Override
-    public List<String> getSubtasks() {
+    public ArrayList<String> getSubtasks() {
         return subtasks;
     }
 
     @Override
-    public List<IComment> getComments() {
+    public ArrayList<Comment> getComments() {
         return comments;
     }
 
@@ -77,12 +71,12 @@ public class Task implements ITask {
     }
 
     @Override
-    public long getCreatorId() {
-        return creatorId;
+    public User getCreator() {
+        return creator;
     }
 
     @Override
-    public List<Long> getPerformers() {
+    public ArrayList<Long> getPerformers() {
         return performers;
     }
 

@@ -2,12 +2,44 @@ package domain.model;
 
 import java.util.ArrayList;
 
+/**
+ * интерфейс сущности проекта
+ */
 public interface Project {
-    long getId(); // идентификатор проекта
-    String getName(); // имя проекта
-    String getDescription(); // описание проекта
-    User getTeamLead(); // id тимлида
-    ArrayList<User> getTeamMembers(); // id участников
-    ArrayList<String> getTaskCategories(); // список категорий задач
+    /**
+     *
+     * @return идентификатор проекта
+     */
+    long getId();
+
+    /**
+     *
+     * @return имя проекта
+     */
+    String getName();
+
+    /**
+     *
+     * @return описание проекта
+     */
+    String getDescription();
+
+    /**
+     *
+     * @return тимлид проекта
+     */
+    User getTeamLead();
+
+    /**
+     *
+     * @return список участников проекта, включает в себя тимлида
+     */
+    ArrayList<User> getTeamMembers();
+
+    /**
+     *
+     * @return список категорий задач проекта
+     */
+    ArrayList<String> getTaskCategories();
 
 }

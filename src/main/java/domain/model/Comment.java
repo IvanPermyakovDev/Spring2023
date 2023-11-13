@@ -1,6 +1,18 @@
 package domain.model;
 
+/**
+ * интерфейс сущности комментария
+ */
 public interface Comment {
-    long getUser(); // пользователь, оставивший комментарий
-    String getText(); // текст комментария
+    /**
+     *
+     * @return пользователь, оставивший комментарий
+     */
+    long getUser();
+
+    /**
+     *
+     * @return текст комментария
+     */
+    String getText();
 }

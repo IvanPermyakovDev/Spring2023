@@ -1,7 +1,7 @@
 package infrastructure.specifications;
 
-import application.entities.Comment;
+import infrastructure.entities.CommentImpl;
 
 public interface CommentSpecification {
-    boolean fits(Comment comment);
+    boolean fits(CommentImpl commentImpl);
 }

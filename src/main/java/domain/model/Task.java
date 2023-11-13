@@ -8,18 +8,80 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * интерфейс сущности проекта
+ */
 public interface Task {
-    long getId(); // идентификатор задачи
-    String getDescription(); // описание задачи
-    ArrayList<String> getSubtasks(); // детали задачи
-    ArrayList<Comment> getComments(); // комментарии задачи
+    /**
+     *
+     * @return id задачи
+     */
+    long getId();
+
+    /**
+     *
+     * @return описание задачи
+     */
+    String getDescription();
+
+    /**
+     *
+     * @return список деталей задачи
+     */
+    ArrayList<String> getSubtasks();
+
+    /**
+     *
+     * @return список комментариев задачи
+     */
+    ArrayList<Comment> getComments();
+
+    /**
+     *
+     * @return дедлайн задачи
+     */
     @DateTimeFormat
-    LocalDateTime getDeadline(); // дедлайн задачи
-    TaskState getCurrentState(); // текущая степень выполнения задачи
+    LocalDateTime getDeadline();
+
+    /**
+     *
+     * @return текущая степень выполнения задачи
+     */
+    TaskState getCurrentState();
+
+    /**
+     *  меняет текущее состояние задачи
+     * @param state
+     */
     void changeState(TaskState state);
-    User getCreator(); // id автор задачи(тимлид или предложивший участник)
-    List<Long> getPerformers(); // выполняющие задачу участники проекта
-    TaskComplexity getComplexity(); // уровень сложности задачи
-    String getCategory(); // категория задачи
-    boolean isOverdue(); // флаг просрочки задачи (false - не просрочено, true - просрочено)
+
+    /**
+     *
+     * @return id автора задачи(тимлид или предложивший участник)
+     */
+    User getCreator();
+
+    /**
+     *
+     * @return список выполняющих задачу участников проекта
+     */
+    List<Long> getPerformers();
+
+    /**
+     *
+     * @return уровень сложности задачи
+     */
+    TaskComplexity getComplexity();
+
+    /**
+     *
+     * @return категория задачи
+     */
+    String getCategory();
+
+    /**
+     *
+     * @return флаг просрочки задачи (false - не просрочено, true - просрочено)
+     */
+    boolean isOverdue();
 }
