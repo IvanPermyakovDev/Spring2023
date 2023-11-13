@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "task_categories")
-public class TaskCategoryImpl implements domain.model.TaskCategory {
+public class TaskCategory implements domain.model.TaskCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long projectId;

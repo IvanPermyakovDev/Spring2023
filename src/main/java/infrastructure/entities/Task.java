@@ -18,7 +18,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tasks")
-public class TaskImpl implements domain.model.Task {
+public class Task implements domain.model.Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

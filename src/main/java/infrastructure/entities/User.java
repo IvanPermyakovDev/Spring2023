@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-public class UserImpl implements domain.model.User {
+public class User implements domain.model.User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -23,8 +23,8 @@ public class UserImpl implements domain.model.User {
     private String login;
     private String password;
     private String mail;
-    private ArrayList<ProjectImpl> ownProjectImpls;
-    private ArrayList<ProjectImpl> projectImpls;
+    private ArrayList<Project> ownProjectImpls;
+    private ArrayList<Project> projectImpls;
     private UserRole role;
     @Override
     public long getId() {
@@ -61,11 +61,11 @@ public class UserImpl implements domain.model.User {
         return mail;
     }
 
-    public ArrayList<ProjectImpl> getOwnProjects() {
+    public ArrayList<Project> getOwnProjects() {
         return ownProjectImpls;
     }
 
-    public ArrayList<ProjectImpl> getProjects() {
+    public ArrayList<Project> getProjects() {
         return projectImpls;
     }
 
@@ -93,19 +93,19 @@ public class UserImpl implements domain.model.User {
         this.role = role;
     }
 
-    public void addOwnProject(ProjectImpl projectImpl){
+    public void addOwnProject(Project projectImpl){
         ownProjectImpls.add(projectImpl);
     }
 
-    public void deleteOwnProject(ProjectImpl projectImpl){
+    public void deleteOwnProject(Project projectImpl){
         ownProjectImpls.remove(ownProjectImpls.indexOf(projectImpl));
     }
 
-    public void addProject(ProjectImpl projectImpl){
+    public void addProject(Project projectImpl){
         projectImpls.add(projectImpl);
     }
 
-    public void deleteProject(ProjectImpl projectImpl){
+    public void deleteProject(Project projectImpl){
         projectImpls.remove(projectImpls.indexOf(projectImpl));
     }
 }
