@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "comments")
-public class CommentImpl implements domain.model.Comment {
+public class Comment implements domain.model.Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;

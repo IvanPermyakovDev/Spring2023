@@ -1,20 +1,20 @@
 package infrastructure.repositories;
 
-import infrastructure.entities.TaskImpl;
 import domain.model.User;
+import infrastructure.entities.Task;
 import infrastructure.specifications.TaskSpecification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Repository
-public interface TaskRepository extends JpaRepository<TaskImpl, Long> {
-    void add(TaskImpl taskImpl);
-    void update(TaskImpl taskImpl);
-    void delete(TaskImpl taskImpl);
-    TaskImpl findById(long id);
-    ArrayList<TaskImpl> findAll();
-    ArrayList<TaskImpl> findByCreator(User creator);
-    ArrayList<TaskImpl> find(TaskSpecification specification);
+public interface TaskRepository extends JpaRepository<Task, Long> {
+    void add(Task taskImpl);
+    void update(Task taskImpl);
+    void delete(Task taskImpl);
+    Task findById(long id);
+    List<Task> findAll();
+    List<Task> findByCreator(User creator);
+    List<Task> find(TaskSpecification specification);
 }

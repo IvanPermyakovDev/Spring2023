@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "projects")
-public class ProjectImpl implements domain.model.Project {
+public class Project implements domain.model.Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
