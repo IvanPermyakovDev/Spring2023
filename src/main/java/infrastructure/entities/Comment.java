@@ -17,14 +17,7 @@ public class Comment implements domain.model.Comment {
 
     @JoinColumn(name = "user")
     private long user;
+
     private String text;
 
-    @Override
-    public long getUser() {
-        return user;
-    }
-    @Override
-    public String getText(){ return text; }
-
-    public void changeText(String text){this.text = text;}
 }

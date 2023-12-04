@@ -27,46 +27,8 @@ public class User implements domain.model.User {
     private ArrayList<Project> projectImpls;
     private UserRole role;
     @Override
-    public long getId() {
-        return id;
-    }
-
-    @Override
     public String getNickname() {
         return nickName;
-    }
-
-    @Override
-    public String getFirstName() {
-        return firstName;
-    }
-
-    @Override
-    public String getLastname() {
-        return lastName;
-    }
-
-    @Override
-    public String getLogin() {
-        return login;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getMail() {
-        return mail;
-    }
-
-    public ArrayList<Project> getOwnProjects() {
-        return ownProjectImpls;
-    }
-
-    public ArrayList<Project> getProjects() {
-        return projectImpls;
     }
 
     public UserRole getRole(){
@@ -75,22 +37,6 @@ public class User implements domain.model.User {
 
     public void changeNickName(String nickName){
         this.nickName = nickName;
-    }
-
-    public void changeLogin(String login){
-        this.login = login;
-    }
-
-    public void changePassword(String password){
-        this.password = password;
-    }
-
-    public void changeMail(String mail){
-        this.mail = mail;
-    }
-
-    public void changeRole(UserRole role){
-        this.role = role;
     }
 
     public void addOwnProject(Project projectImpl){

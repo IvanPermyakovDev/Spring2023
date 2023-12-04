@@ -5,12 +5,7 @@ import lombok.Value;
 
 @Value
 @AllArgsConstructor
-public class UserRegistrationDto {
+public class UserAuthDTO{
     private String login;
-    private String firstName;
-    private String lastName;
-    private String email;
     private String password;
-    private String confirmPassword;
-
 }
