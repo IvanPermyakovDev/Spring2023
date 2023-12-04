@@ -23,34 +23,6 @@ public class Project implements domain.model.Project {
     private ArrayList<User> teamMembers;
     private ArrayList<String> taskCategories;
 
-    @Override
-    public long getId() {
-        return id;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public User getTeamLead() {
-        return teamLead;
-    }
-
-    @Override
-    public ArrayList<User> getTeamMembers() { return teamMembers; }
-
-    @Override
-    public ArrayList<String> getTaskCategories() { return taskCategories; }
-
-    public void changeName(String newName) { name = newName; }
-    public void updateDescription(String newDescription) { description = newDescription; }
     public void addTeamMember(User member) { teamMembers.add(member); }
     public void deleteTeamMember(long memberId){ teamMembers.remove(teamMembers.indexOf(memberId)); }
     public void addTaskCategory(String category) { taskCategories.add(category); }

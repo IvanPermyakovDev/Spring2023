@@ -10,10 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    void add(Task taskImpl);
-    void update(Task taskImpl);
-    void delete(Task taskImpl);
-    Task findById(long id);
     List<Task> findAll();
     List<Task> findByCreator(User creator);
     List<Task> find(TaskSpecification specification);

@@ -10,10 +10,6 @@ import java.util.List;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    void add(Comment commentImpl);
-    void update(Comment commentImpl);
-    void delete(Comment commentImpl);
-    Comment findById(long id);
     List<Comment> findAll();
     List<Comment> findByUser(User user);
     List<Comment> find(CommentSpecification specification);
