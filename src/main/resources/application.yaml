@@ -23,10 +23,15 @@ spring:
         8447
 
   datasource:
-    url: jdbc:h2:mem:defaultdb
-    driverClassname: org.h2.Driver
-    username: default
-    password: 1234
-  h2:
-    console:
-      enabled: true
+    url: jdbc:sqlserver://localhost:1433;databaseName=ChatModule;encrypt=false
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: sa
+    password: 12345
+
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
